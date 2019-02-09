@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+<div class="container-fluid bg">
+<div class="container text-center cls">
+<input type="text" name="search"  [(ngModel)]="search"> 
+
+  <h4>Book List</h4>
+<table class="table table-dark" *ngIf="search===''; else elseBlock1">
+    <tr>
+      <th>ISBN</th>
+      <th>Title</th>
+      <th>Sector</th>
+      <th>Authors</th>
+      <th>Publisher</th>
+      <th>NoOfPages</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let item of bookarray">
+     <td > {{item.getIsbn()}}</td>
+     <td> {{item.getTitle()}}</td>
+     <td> {{item.getSector()}}</td>
+     <td> {{item.getAuthors()}}</td>
+     <td> {{item.getPublisher()}}</td>
+     <td> {{item. getNumberOfPages()}}</td>
+     <td *ngIf="item.getCurrentReader()!=null; else elseBlock" class="text-danger"><span class="badge  badge-danger">Not Available</span></td>
+     <ng-template #elseBlock><td class="text-success"><span class="badge  badge-success">Available</span></td></ng-template>
+    </tr>
+  </table>
+</div>
+<div class="container text-center cls1">
+  <h4>Dvd List</h4>
+  <table class="table table-dark" *ngIf="search===''; else elseBlock2">
+      <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Sector</th>
+          <th>Producer</th>
+          <th>Actors</th>
+          <th>Languages</th>
+          <th>Subtitles</th>
+          <th>PublicationDate</th>
+          <th>Status</th>
+        </tr>
+    <tr  *ngFor="let item of dvdarray">
+      <td> {{item.getIsbn()}}</td>
+      <td> {{item.getTitle()}}</td>
+      <td> {{item.getSector()}}</td>
+      <td> {{item.getProducer()}}</td>
+      <td> {{item.getActor()}}</td>
+      <td> {{item.getLanguages()}}</td>
+      <td> {{item.getSubtitles()}}</td>
+      <td>{{item.getPublicationDate().getDay()}}/{{item.getPublicationDate().getMonth()}}/{{item.getPublicationDate().getYear()}}</td>
+      <td *ngIf="item.getCurrentReader()!=null; else elseBlock"><span class="badge  badge-danger">Not Available</span></td>
+      <ng-template #elseBlock><td><span class="badge  badge-success">Available</span></td></ng-template>
+   </tr>
+  </table>
+  <ng-template #elseBlock1>
+  <table class="table" >
+    <thead  class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Sector</th>
+        <th>Authors</th>
+        <th>Publisher</th>
+        <th>NoOfPages</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+      <tr *ngFor="let item of bookarray"  class="table-active">
+       <td *ngIf="item.getTitle()===search; then then1 "> {{item.getTitle()}}</td>
+       <ng-template #then1>
+       <td> {{item.getTitle()}}</td>
+       <td > {{item.getIsbn()}}</td>
+       <td> {{item.getSector()}}</td>
+       <td> {{item.getAuthors()}}</td>
+       <td> {{item.getPublisher()}}</td>
+       <td> {{item. getNumberOfPages()}}</td>
+       <td *ngIf="item.getCurrentReader()!=null; else elseBlock" class="text-danger"><span class="badge  badge-danger">Not Available</span></td>
+       <ng-template #elseBlock><td class="text-success"><span class="badge  badge-success">Available</span></td></ng-template>
+      </ng-template>
+      </tr>
+    </table>
+  </ng-template>
+  <ng-template #elseBlock2>
+      <table class="table" >
+        <thead class="thead-dark">
+          <tr>
+              
+              <th>Title</th>
+              <th>ISBN</th>
+              <th>Sector</th>
+              <th>Producer</th>
+              <th>Actors</th>
+              <th>Languages</th>
+              <th>Subtitles</th>
+              <th>PublicationDate</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        <tr  *ngFor="let item of dvdarray"  class="table-active">
+         <td *ngIf="item.getTitle()===search; then then2 "> {{item.getTitle()}}</td>
+          <ng-template #then2>
+          <td> {{item.getTitle()}}</td>
+          <td>{{item.getIsbn()}}</td>
+          <td> {{item.getSector()}}</td>
+          <td> {{item.getProducer()}}</td>
+          <td> {{item.getActor()}}</td>
+          <td> {{item.getLanguages()}}</td>
+          <td> {{item.getSubtitles()}}</td>
+          <td>{{item.getPublicationDate().getDay()}}/{{item.getPublicationDate().getMonth()}}/{{item.getPublicationDate().getYear()}}</td>
+          <td *ngIf="item.getCurrentReader()!=null; else elseBlock"><span class="badge  badge-danger">Not Available</span></td>
+          <ng-template #elseBlock><td><span class="badge  badge-success">Available</span></td></ng-template></ng-template>
+       </tr>
+      </table>
+  </ng-template>
+
+</div>
+</div>
+  

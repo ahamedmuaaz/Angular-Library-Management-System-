@@ -1,0 +1,13 @@
+.bg{
+opacity:1;
+margin-bottom: 60px;
+
+
+}
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+.btn{
+    margin: 5px;
+}
+   

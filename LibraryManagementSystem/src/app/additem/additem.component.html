@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="container-fluid text-center bg-dark design" >
+  <p class="text-light">{{book}}</p>
+  <p class="text-light">{{dvd}}</p>
+  <h4 class="title text-light">Select Item Type:</h4>
+ 
+  <button type="button" class="btn-danger btn col-sm-4 btn-lg" (click)="bookonclick()">Book</button>
+  <button type="button" class="btn-danger btn col-sm-4 btn-lg" (click)="dvdonclick()">DVD</button>
+</div>
+
+  <app-book *ngIf="bookform"></app-book>
+  <app-dvd *ngIf="dvdform"></app-dvd>
+</div>
+<app-footer></app-footer>

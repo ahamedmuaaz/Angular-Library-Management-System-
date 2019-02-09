@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+<h1>Report is here!</h1>
+<table class="table">
+<tr>
+ <th>isbn</th>
+ <th>title</th>
+ <th>Type</th>
+ <th>BorrowerName</th>   
+ <th>BorrowedDate</th>
+ <th>Fine Amount</th>
+</tr>
+<tr *ngFor="let item of reportarray">
+<td>{{item?.item?.isbn}}</td>    
+<td>{{item?.item?.title}}</td>
+<td *ngIf="item?.item?.authors!=null; else elseBlock">Book</td>
+<ng-template #elseBlock><td>Dvd</td></ng-template>
+<td>{{item?.item.currentReader.name}}</td>
+<td>{{item?.item.borrowedDate.day}}/{{item?.item.borrowedDate.month}}/{{item?.item.borrowedDate.year}}</td>
+<td>€{{item.fineamount}}</td>
+</tr>
+</table>
+<button (click)="getposts()" class="btn btn-primary">Generate</button>
+</div>
+
+
+

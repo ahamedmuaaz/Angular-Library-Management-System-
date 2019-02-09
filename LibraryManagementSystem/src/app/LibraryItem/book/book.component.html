@@ -1,0 +1,49 @@
+<div class="container-fluid col-sm-6 text-center bg">
+    <form class="form-horizontal" [formGroup]="BookForm" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="Book isbn">Book ISBN</label>
+             <input type="number" class="form-control " formControlName="isbn" placeholder="" name="Bookisbn" >
+             <span *ngIf="!BookForm.get('isbn').valid && BookForm.get('isbn').touched">Please Enter a Valid ISBN!!!</span>
+        </div>
+
+        <div class="form-group">
+            <label for="Book Title">Book Title</label>
+            <input type="text" class="form-control" formControlName="title" placeholder="Book Title" name="BookTitle">
+        </div>
+
+        <div class="form-group">
+           <label for="Sector">Sector</label>
+           <input type="text" class="form-control"  formControlName="sector" placeholder="Sector" name="Sector">
+        </div>
+        
+        <div class="form-group" formArrayName="authors">
+            <h4> Authors</h4>
+            <div class="form-group" *ngFor="let Authorcontrol of BookForm.get('authors').controls; let i=index">
+            <input type="text" class="form-control"  [formControlName]="i" placeholder="Author" name="Author">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="onAuthorAdd()">Add Author</button>
+            <button type="button" class="btn btn-primary" (click)="onAuthorRemove()">Remove Author</button>
+        </div>
+        <div class="form-group">
+            <label for="Publisher">Publisher</label>
+            <input type="text" class="form-control" formControlName="publisher"placeholder="Publisher" name="Publisher">
+        </div>
+        
+        <div class="form-group">
+            <label for="PublishedDate">Published Date</label>
+            <input type="date" class="form-control"  formControlName="publisherdate" placeholder="PublishedDate" name="PublishedDate">
+        </div>
+
+        <div class="form-group">
+            <label for="No Of Pages">Number of Pages</label>
+            <input type="number" class="form-control" formControlName="pages" placeholder="Number Of Pages" name="No Of Pages" required>
+        </div>
+       
+       <button type="submit" class="btn btn-primary col-4 "  [disabled]="!BookForm.valid">ADD</button>
+       </form>
+      
+       <div class="alert alert-warning" *ngIf="!warning">
+        <strong>Warning!</strong> {{message}}
+      </div>
+
+</div>

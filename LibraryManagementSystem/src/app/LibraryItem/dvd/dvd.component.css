@@ -1,0 +1,10 @@
+.sbn{
+    margin: 5px;
+
+}
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+.bg{
+    margin-bottom: 60px;
+}

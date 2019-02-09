@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+<button class="btn btn-danger col-sm-3" (click)="addclick()">Add Reader</button>
+<button class="btn btn-danger col-sm-3" (click)="viewclick()">View Readers</button>
+<button class="btn btn-danger col-sm-3" (click)="deleteclick()">Delete Readers</button>
+
+<app-addreader *ngIf="add"></app-addreader>
+<app-viewreader *ngIf="view"></app-viewreader>
+<app-deletereader *ngIf="delete"></app-deletereader>
+</div>

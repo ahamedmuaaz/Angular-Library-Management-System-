@@ -1,0 +1,21 @@
+<div class="container-fluid extra text-center">
+  <h3>Add Reader Here</h3>
+  <form  [formGroup]="AddForm" (ngSubmit)="addreader()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name"  formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="name">EMAIl</label>
+      <input type="email" class="form-control" id="email" name="email"  formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="name">Mobile Number</label>
+      <input type="number" class="form-control" id="mobile" name="mobile"  formControlName="mobile">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="(!AddForm.valid)" >Submit</button>
+  </form >
+  <div class="alert alert-info" *ngIf="warning">
+    <strong>Your Reader ID:</strong> {{message}}
+  </div>
+  </div>

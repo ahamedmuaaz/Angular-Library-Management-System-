@@ -1,0 +1,64 @@
+
+<div class="container col-sm-6 text-center bg">
+
+  <form class="form-horizontal" [formGroup]="DvdForm" (ngSubmit)="onSubmit()">
+    
+  <div class="form-group">
+        <label for="Dvd isbn">Dvd ISBN</label>
+        <input type="number" class="form-control" formControlName="isbn" placeholder="" name="Dvd isbn">
+      </div>
+
+      <div class="form-group">
+        <label for="Dvd Title">Dvd Title</label>
+        <input type="text" class="form-control" formControlName="title" placeholder="Dvd Title" name="Dvd Title">
+      </div>
+
+    <div class="form-group">
+       <label for="Sector">Sector</label>
+       <input type="text" class="form-control" formControlName="sector" placeholder="Sector" name="Sector">
+    </div>
+
+    <div class="form-group" formArrayName="actors">
+      <h4>Actors</h4>
+      <div class="form-group" *ngFor="let Actorcontrol of DvdForm.get('actors').controls; let i=index">
+      <input type="text" class="form-control"  [formControlName]="i" placeholder="Actor" name="actor">
+      </div>
+      <button type="button" class="btn btn-primary sbn" (click)="onAdd(DvdForm.get('actors'))">Add Actor</button>
+      <button type="button" class="btn btn-primary sbn" (click)="onRemove(DvdForm.get('actors'))">Remove Actor</button>
+  </div>
+
+    <div class="form-group">
+      <label for="producer">Producer</label>
+      <input type="text" class="form-control" formControlName="producer" placeholder="Producer" name="Producer">
+    </div>
+
+    <div class="form-group">
+      <label for="publisheddate">Published Date</label>
+      <input type="date" class="form-control" formControlName="publisheddate" placeholder="Published Date" name="publisheddate">
+    </div>
+
+    <div class="form-group" formArrayName="languages">
+      <h4>Languages</h4>
+      <div class="form-group" *ngFor="let LanguageControl of DvdForm.get('languages').controls; let i=index">
+      <input type="text" class="form-control"  [formControlName]="i" placeholder="Language" name="language">
+      </div>
+      <button type="button" class="btn btn-primary sbn" (click)="onAdd(DvdForm.get('languages'))">Add Language</button>
+      <button type="button" class="btn btn-primary sbn" (click)="onRemove(DvdForm.get('languages'))">Remove Language</button>
+  </div>
+
+  <div class="form-group" formArrayName="subtitles">
+    <h4>Subtitles</h4>
+    <div class="form-group" *ngFor="let subtitlecontrol of DvdForm.get('subtitles').controls; let i=index">
+    <input type="text" class="form-control"  [formControlName]="i" placeholder="Subtitle" name="subtitle">
+    </div>
+    <button type="button" class="btn btn-primary sbn" (click)="onAdd(DvdForm.get('subtitles'))">Add Subtitle</button>
+    <button type="button" class="btn btn-primary sbn" (click)="onRemove(DvdForm.get('subtitles'))">Remove Subtitle</button>
+</div>
+
+    <button type="submit" class="btn btn-primary col-4" [disabled]='!DvdForm.valid'>ADD</button>
+  </form>
+
+  <div class="alert alert-warning" *ngIf="!warning">
+    <strong>Warning!</strong> {{message}}
+  </div>
+  </div>

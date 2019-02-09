@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="container-fluid text-center col-md-4 col-md-offset-4 bg-dark edit">
+    <h3 class="text-light">Return Item Here</h3>
+    <form class="uk-form" [formGroup]="ReturnForm" (ngSubmit)="return()">
+      <div class="form-group">
+        <label for="isbn" class="text-light">Isbn</label>
+        <input type="number" class="form-control" id="isbn" name="isbn" formControlName="isbn"  ng-change="myFunction()">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!(ReturnForm.valid)">Request</button>
+    </form>
+
+    <div class="alert alert-info text-center info" *ngIf="show">
+        <strong>Info!</strong> {{message}}
+      </div>
+    
+</div>

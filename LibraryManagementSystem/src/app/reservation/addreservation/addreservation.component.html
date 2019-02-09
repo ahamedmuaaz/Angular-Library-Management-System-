@@ -1,0 +1,18 @@
+<div class="container-fluid text-center col-md-4 col-md-offset-4  edit">
+  <h3 >Reserve An Item Here</h3>
+  <form class="uk-form" [formGroup]="ReserveForm" (ngSubmit)="reserve()">
+    <div class="form-group">
+      <label for="memberid">Member ID</label>
+      <input type="number" class="form-control" id="memberid" name="memberid"  formControlName="id">
+    </div>
+    <div class="form-group">
+      <label for="isbn" >Isbn</label>
+      <input type="number" class="form-control" id="isbn" name="isbn" formControlName="isbn">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!ReserveForm.valid">Request</button>
+  </form>
+
+  <div class="alert alert-info text-center extra" *ngIf="showmassage">
+    <strong>Info Panel!</strong> {{message}}
+  </div>
+</div>

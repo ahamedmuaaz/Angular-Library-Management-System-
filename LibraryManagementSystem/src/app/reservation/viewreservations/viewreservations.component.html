@@ -1,0 +1,17 @@
+<div class="container-fluid text-center  col-md-8 col-md-offset-8">
+<h3>All Reservations</h3>
+<table class="table">
+<tr>
+<th>ReservationId</th>
+<th>MemberId</th>
+<th>ISBN</th>
+<th>Reserved Date</th>
+</tr>
+<tr *ngFor="let item of reservArray">
+<td>{{item.reservationId}}</td>
+<td>{{item.id}}</td>
+<td>{{item.isbn}}</td>
+<td>{{item.reservedDate.day}}/{{item.reservedDate.month}}/{{item.reservedDate.year}}</td>
+</tr>
+</table>
+</div>

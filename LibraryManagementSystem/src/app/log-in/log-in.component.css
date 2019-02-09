@@ -1,0 +1,23 @@
+
+
+.back{
+    background-image:url("src\assets\1920x1080-Library-Wallpaper.jpg");
+    height:626px;
+    background-size: cover;
+    
+} 
+.form{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.cls{
+    opacity: 0.9;
+
+    background-color:black;
+}
+input.ng-invalid.ng-touched{
+    border: 2px solid yellow;
+}
+
+    
+

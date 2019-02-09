@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="container-fluid cls">
+<button class="btn btn-danger col-sm-3" (click)="addclick()">Add Reservation</button>
+<button class="btn btn-danger col-sm-3" (click)="viewclick()">View Reservations</button>
+<button class="btn btn-danger col-sm-3" (click)="deleteclick()">Delete Reservation</button>
+
+<app-addreservation *ngIf="add"></app-addreservation>
+<app-viewreservations *ngIf="view"></app-viewreservations>
+<app-deletereservation *ngIf="delete"></app-deletereservation>
+</div>
